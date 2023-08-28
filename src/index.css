@@ -1,0 +1,40 @@
+:root {
+    --DarkBlue: hsl(209, 23%, 22%);
+    --VeryDarkBlue: hsl(207, 26%, 17%);
+    --VeryDarkBlue: hsl(200, 15%, 8%);
+    --DarkGray: hsl(0, 0%, 52%);
+    --VeryLightGray: hsl(0, 0%, 98%);
+    --White: hsl(0, 0%, 100%);
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+}
+
+.wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+}
+
+input[type]:focus {
+    outline: none;
+}
+
+
+@media (max-width:500px) {
+    .custom {
+        width: 320px;
+    }
+
+    .customCard {
+        width: 100%;
+    }
+}
