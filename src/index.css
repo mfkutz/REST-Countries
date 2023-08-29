@@ -15,6 +15,7 @@
 @layer base {
     html {
         font-family: 'Nunito Sans', sans-serif;
+        background: var(--VeryLightGray);
     }
 }
 
@@ -34,7 +35,7 @@ input[type]:focus {
         width: 320px;
     }
 
-    .customCard {
+   /*  .customCard {
         width: 100%;
-    }
+    } */
 }

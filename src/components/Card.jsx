@@ -4,9 +4,9 @@ const Card = ({ item }) => {
 
     return (
         <Link to={`/details/${item.alpha3Code}`}>
-            <div className={`w-[264px] rounded-[5px] shadow-md customCard cursor-pointer`} key={item.alpha3Code} >
+            <div className={`w-[264px] rounded-[5px] shadow-md cursor-pointer bg-white customCard `} key={item.alpha3Code} >
                 <div className="flex h-[180px]" >
-                    <img src={item.flag} alt="image" className="w-full h-full object-cover rounded-t-[5px]" />
+                    <img src={item.flag} alt="image" className=" object-cover rounded-t-[5px]" />
                 </div>
                 <div className="p-5">
                     <h2 className="font-bold text-[1.2rem] py-3">{item.name}</h2>
