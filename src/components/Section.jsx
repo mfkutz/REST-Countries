@@ -41,6 +41,8 @@ const Section = () => {
   }
 
 
+
+
   return (
     <div className="pt-[42px] h-full z-0 flex flex-col w-full ">
       <div className="wrapper flex justify-between pb-8 px-[10px] flex-wrap w-full gap-4">
