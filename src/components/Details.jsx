@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom"
 import { RiArrowLeftLine } from "react-icons/ri";
 
-import data from "../../src/data.json";
+/* import data from "../../src/data.json"; */
+import data from '../../public/data.json'
 
 
 const Details = () => {

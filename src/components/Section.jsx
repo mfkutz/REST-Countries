@@ -14,7 +14,7 @@ const Section = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('../../src/data.json')
+        const response = await fetch('./data.json')
         const jsonData = await response.json()
         setData(jsonData)
         setShuffledData(getShuffledData(jsonData));
