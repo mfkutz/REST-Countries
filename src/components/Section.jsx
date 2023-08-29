@@ -14,7 +14,7 @@ const Section = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/data.json')
+        const response = await fetch('../../src/data.json')
         const jsonData = await response.json()
         setData(jsonData)
         setShuffledData(getShuffledData(jsonData));
@@ -24,7 +24,6 @@ const Section = () => {
     }
     fetchData()
   }, [])
-
 
 
   function getShuffledData(data) {
@@ -43,7 +42,7 @@ const Section = () => {
 
 
   return (
-    <div className="pt-[42px] h-screen z-0 flex flex-col w-full">
+    <div className="pt-[42px] h-screen z-0 flex flex-col w-full ">
       <div className="wrapper flex justify-between pb-8 px-[10px] flex-wrap w-full gap-4">
         <div className=" relative">
           <input
@@ -74,14 +73,14 @@ const Section = () => {
         </button>
       </div>
 
-      <div className="wrapper justify-center px-[10px]">
-
+      <div className="wrapper px-[10px] ">
         <div className="flex flex-wrap gap-[4.6rem] justify-center ">
           {filteredData.map((item) => (
+
             < Card item={item} key={item.alpha3Code} />
+
           ))}
         </div>
-
       </div>
     </div>
   )
