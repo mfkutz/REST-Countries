@@ -11,7 +11,7 @@ const Details = () => {
 
     return (
 
-        <div className="wrapper flex flex-col px-[10px] bg-gray-600">
+        <div className="wrapper flex flex-col px-[10px] ">
             <div className=" pt-[5rem] ">
                 <Link to={"/"}>
                     <button className="bg-white rounded-md shadow-md px-9 py-2 flex items-center gap-4">
@@ -22,15 +22,15 @@ const Details = () => {
             </div>
             <div className="pt-[5rem] flex justify-between">
 
-                <div>
-                    <img src={country.flag} alt="" />
-                </div>
+                
+                    <img src={country.flag} alt="" className="w-[560px] h-[400px]" />
+                
 
-                <div>
-                    <h2>{country.name}</h2>
-                    <div className="flex">
+                <div className=" flex flex-col">
+                    <h2 className="text-[30px] font-bold pt-10">{country.name}</h2>
+                    <div className="flex pt-7  gap-24">
 
-                        <div>
+                        <div className="flex flex-col gap-2">
                             <div className="flex items-center mb-[.1rem]">
                                 <h3 className="font-semibold text-[1.1rem]">Native Name: </h3>
                                 <span className="text-[1.1rem] ml-1">Belgie</span>
@@ -53,7 +53,7 @@ const Details = () => {
                             </div>
                         </div>
 
-                        <div>
+                        <div class>
                             <div className="flex items-center mb-[.1rem]">
                                 <h3 className="font-semibold text-[1.1rem]">Top Level Domain:</h3>
                                 <span className="text-[1.1rem] ml-1">.be</span>
@@ -71,7 +71,7 @@ const Details = () => {
 
                     </div>
 
-                    <div className="">
+                    <div className="pt-12">
                         <div className="flex items-center mb-[.1rem] gap-2">
                             <h3 className="font-semibold text-[1.1rem]">Border Countries: </h3>
                             <span className="text-[.9rem] ml-1 border w-[110px] py-1 rounded-md text-center font-semibold">France</span>
