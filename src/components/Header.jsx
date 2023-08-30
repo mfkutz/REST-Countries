@@ -4,6 +4,7 @@ import { RiMoonLine, RiMoonFill } from "react-icons/ri";
 const Header = () => {
   const [theme, setTheme] = useState("light")
 
+  /* Dark Mode */
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark")

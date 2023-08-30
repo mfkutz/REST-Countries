@@ -4,7 +4,7 @@ import data from '../../public/data.json'
 
 const Details = () => {
     const { countryId } = useParams();
-    const country = data.find(item => item.alpha3Code === countryId);
+    const country = data.find(item => item.alpha3Code === countryId)
 
     return (
         <div className="wrapper flex flex-col px-[25px] w-full h-screen ">

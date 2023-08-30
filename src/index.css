@@ -1,7 +1,7 @@
 :root {
     --DarkBlue: hsl(209, 23%, 22%);
     --VeryDarkBlue: hsl(207, 26%, 17%);
-    
+
     --DarkGray: hsl(0, 0%, 52%);
     --VeryLightGray: hsl(0, 0%, 98%);
     --White: hsl(0, 0%, 100%);
@@ -34,13 +34,30 @@ input[type]:focus {
     outline: none;
 }
 
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #1c51e0;
+    color: white;
+    border: none;
+    border-radius: 5%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0.7;
+}
+
+.scroll-button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 
 @media (max-width:500px) {
     .custom {
         width: 320px;
     }
-
-    /*  .customCard {
-        width: 100%;
-    } */
 }

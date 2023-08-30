@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { BiSearchAlt2, BiChevronDown } from "react-icons/bi"
+import { RiArrowUpDoubleLine } from "react-icons/ri"
 import Card from "./Card"
 
 const Section = () => {
@@ -9,8 +10,8 @@ const Section = () => {
   const [region, setRegion] = useState(false)
   const [shuffledData, setShuffledData] = useState([])
   const [selectedRegion, setSelectedRegion] = useState("")
-
-  const [countriesToShow, setCountriesToShow] = useState(8)    /* agrego estado para controlar cuanto se muestra*/
+  const [countriesToShow, setCountriesToShow] = useState(8)
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +19,7 @@ const Section = () => {
         const response = await fetch('./data.json')
         const jsonData = await response.json()
         setData(jsonData)
-        setShuffledData(getShuffledData(jsonData));
+        setShuffledData(getShuffledData(jsonData))
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -26,37 +27,53 @@ const Section = () => {
     fetchData()
   }, [])
 
+  /*Order a-z*/
   function getShuffledData(data) {
     return [...data].sort((a, b) => a.name.localeCompare(b.name))
   }
-
+  /**Filter */
   const filteredData = shuffledData.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedRegion === "" || item.region === selectedRegion)
-  ).slice(0, countriesToShow) /*agregue un slice para que muestre desde 0 a el estado, aun sigue funcionando el back en details*/
+  ).slice(0, countriesToShow)
 
   function handleRegion(region) {
     setSelectedRegion(region);
   }
 
+  /*Finite Scroll View*/
   useEffect(() => {
     const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollPosition = window.scrollY;
-
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollPosition = window.scrollY
       if (documentHeight - windowHeight - scrollPosition < 300) {
-        // Si el usuario está cerca del final, incrementar la cantidad de países a mostrar
-        setCountriesToShow(prev => prev + 8); // Mostrar 8 países adicionales
+        setCountriesToShow(prev => prev + 8)
       }
-    };
-
+    }
     window.addEventListener("scroll", handleScroll);
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll)
     };
   }, [])
+
+  /*Scroll to TOP*/
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollButton(true)
+      } else {
+        setShowScrollButton(false)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
   return (
     <div className="pt-[42px] h-full z-0 flex flex-col w-full pb-12 ">
@@ -94,6 +111,15 @@ const Section = () => {
             < Card item={item} key={item.alpha3Code} />
           ))}
         </div>
+
+        {showScrollButton && (
+          <button
+            className="scroll-button items-center flex justify-center"
+            onClick={scrollToTop}
+          >
+            <RiArrowUpDoubleLine size={'30px'} />
+          </button>
+        )}
       </div>
     </div>
   )
