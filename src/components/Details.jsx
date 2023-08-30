@@ -9,7 +9,7 @@ const Details = () => {
 
     return (
 
-        <div className="wrapper flex flex-col px-[25px] w-full h-screen">
+        <div className="wrapper flex flex-col px-[25px] w-full h-screen ">
             <div className=" pt-[5rem] ">
                 <Link to={"/"}>
                     <button className="bg-white rounded-md shadow-md px-9 py-2 flex items-center gap-4 dark:bg-DarkBlue dark:text-white transition duration-300">
@@ -71,7 +71,7 @@ const Details = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="pt-12">
+                    <div className="pt-12 mb-7">
                         <div className="flex items-center mb-[.1rem] gap-2 flex-wrap">
                             <h3 className="font-semibold text-[1.1rem]">Time zone: </h3>
                             <span className="text-[.9rem] ml-1 border w-[110px] py-1 rounded-md text-center font-semibold">{country.timezones}</span>
