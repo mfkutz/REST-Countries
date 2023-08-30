@@ -24,7 +24,7 @@ const Details = () => {
                 </div>
                 <div className=" flex flex-col dark:text-white justify-start ">
                     <h2 className="text-[30px] font-bold pt-10">{country.name}</h2>
-                    <div className="flex pt-7 gap-24 sm:flex-row flex-col ">
+                    <div className="flex pt-7 sm:gap-24 gap-9 sm:flex-row flex-col ">
 
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center mb-[.1rem]">
