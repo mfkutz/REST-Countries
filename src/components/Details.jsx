@@ -9,7 +9,7 @@ const Details = () => {
 
     return (
 
-        <div className="wrapper flex flex-col px-[10px] w-full h-screen">
+        <div className="wrapper flex flex-col px-[25px] w-full h-screen">
             <div className=" pt-[5rem] ">
                 <Link to={"/"}>
                     <button className="bg-white rounded-md shadow-md px-9 py-2 flex items-center gap-4 dark:bg-DarkBlue dark:text-white transition duration-300">
@@ -19,7 +19,7 @@ const Details = () => {
                 </Link>
             </div>
             <div className="pt-[5rem] flex xl:justify-between xl:flex-row flex-col sm:items-center">
-                <div className=" lg:w-[560px] lg:h-[400px] relative ">
+                <div className=" sm:w-[560px] sm:h-[400px] relative ">
                     <img src={country.flag} alt="flag" className=" inset-0 w-full h-full object-contain" />
                 </div>
                 <div className=" flex flex-col dark:text-white justify-start ">

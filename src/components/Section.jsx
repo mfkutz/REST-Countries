@@ -40,7 +40,7 @@ const Section = () => {
 
   return (
     <div className="pt-[42px] h-full z-0 flex flex-col w-full pb-12 ">
-      <div className="wrapper flex justify-between pb-8 px-[10px] flex-wrap w-full gap-4">
+      <div className="wrapper flex justify-between pb-8 px-[25px] flex-wrap w-full gap-4 ">
         <div className=" relative">
           <input
             type="text"
@@ -70,7 +70,7 @@ const Section = () => {
         </button>
       </div>
 
-      <div className="wrapper px-[10px] w-full ">
+      <div className="wrapper px-[25px] w-full ">
         <div className="flex flex-wrap gap-[4.6rem] justify-center ">
           {filteredData.map((item) => (
 

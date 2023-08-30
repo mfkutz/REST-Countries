@@ -19,8 +19,8 @@ const Header = () => {
 
   return (
     <div className=" bg-white shadow-md flex dark:bg-DarkBlue transition duration-300 ">
-      <div className="wrapper flex justify-between items-center py-[18px] px-[10px] w-full">
-        <div className="text-[25px] font-bold dark:text-white">
+      <div className="wrapper flex justify-between items-center py-[18px] px-[25px] w-full">
+        <div className="text-[18px] font-bold dark:text-white sm:text-[25px]">
           Where in the world?
         </div>
         <div className="text-[16px] font-semibold flex gap-3 items-center cursor-pointer dark:text-white" onClick={handleThemeSwitch}>
