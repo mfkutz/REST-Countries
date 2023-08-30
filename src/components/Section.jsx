@@ -33,7 +33,7 @@ const Section = () => {
   const filteredData = shuffledData.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedRegion === "" || item.region === selectedRegion)
-  ).slice(0, countriesToShow) /*agregue un slice para que muestre desde 0 a el estado, aun sigue funcionando el back en details*/ 
+  ).slice(0, countriesToShow) /*agregue un slice para que muestre desde 0 a el estado, aun sigue funcionando el back en details*/
 
   function handleRegion(region) {
     setSelectedRegion(region);
@@ -44,21 +44,19 @@ const Section = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollPosition = window.scrollY;
-  
+
       if (documentHeight - windowHeight - scrollPosition < 300) {
         // Si el usuario está cerca del final, incrementar la cantidad de países a mostrar
         setCountriesToShow(prev => prev + 8); // Mostrar 8 países adicionales
       }
     };
-  
+
     window.addEventListener("scroll", handleScroll);
-  
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-
+  }, [])
 
   return (
     <div className="pt-[42px] h-full z-0 flex flex-col w-full pb-12 ">
