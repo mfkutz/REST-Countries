@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { RiMoonLine, RiMoonFill } from "react-icons/ri";
 
 const Header = () => {
-
   const [theme, setTheme] = useState("light")
 
   useEffect(() => {

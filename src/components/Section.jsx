@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-import { BiSearchAlt2, BiChevronDown } from "react-icons/bi";
-import Card from "./Card";
+import { useEffect, useState } from "react"
+import { BiSearchAlt2, BiChevronDown } from "react-icons/bi"
+import Card from "./Card"
 
 const Section = () => {
 
   const [data, setData] = useState([])
-  const [searchTerm, setSearchTerm] = useState(""); // Nuevo estado para el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState("")
   const [region, setRegion] = useState(false)
-  const [shuffledData, setShuffledData] = useState([]); // Estado para mantener los datos reordenados
-  const [selectedRegion, setSelectedRegion] = useState(""); // Estado para la región seleccionada
+  const [shuffledData, setShuffledData] = useState([])
+  const [selectedRegion, setSelectedRegion] = useState("")
+
+  const [countriesToShow, setCountriesToShow] = useState(8)    /* agrego estado para controlar cuanto se muestra*/
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,18 +27,38 @@ const Section = () => {
   }, [])
 
   function getShuffledData(data) {
-    /* return [...data].sort(() => Math.random() - 0.5); */
-    return [...data].sort((a, b) => a.name.localeCompare(b.name));
+    return [...data].sort((a, b) => a.name.localeCompare(b.name))
   }
 
   const filteredData = shuffledData.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedRegion === "" || item.region === selectedRegion)
-  )
+  ).slice(0, countriesToShow) /*agregue un slice para que muestre desde 0 a el estado, aun sigue funcionando el back en details*/ 
 
   function handleRegion(region) {
     setSelectedRegion(region);
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollPosition = window.scrollY;
+  
+      if (documentHeight - windowHeight - scrollPosition < 300) {
+        // Si el usuario está cerca del final, incrementar la cantidad de países a mostrar
+        setCountriesToShow(prev => prev + 8); // Mostrar 8 países adicionales
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
 
   return (
     <div className="pt-[42px] h-full z-0 flex flex-col w-full pb-12 ">
@@ -53,7 +75,6 @@ const Section = () => {
             <BiSearchAlt2 size='24px' color='gray' />
           </div>
         </div>
-
         <button className="shadow-md bg-white text-[14px] font-semibold rounded-md w-[200px] text-left pl-6 h-[55px] relative dark:bg-DarkBlue dark:text-white" onClick={() => setRegion(!region)}>
           {selectedRegion === "" ? 'All regions' : selectedRegion}
           <div className="absolute right-2 top-4">
@@ -69,13 +90,10 @@ const Section = () => {
           </ul>
         </button>
       </div>
-
       <div className="wrapper px-[25px] w-full ">
         <div className="flex flex-wrap gap-[4.6rem] justify-center ">
           {filteredData.map((item) => (
-
             < Card item={item} key={item.alpha3Code} />
-
           ))}
         </div>
       </div>

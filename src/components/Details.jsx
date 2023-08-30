@@ -2,13 +2,11 @@ import { Link, useParams } from "react-router-dom"
 import { RiArrowLeftLine } from "react-icons/ri"
 import data from '../../public/data.json'
 
-
 const Details = () => {
     const { countryId } = useParams();
     const country = data.find(item => item.alpha3Code === countryId);
 
     return (
-
         <div className="wrapper flex flex-col px-[25px] w-full h-screen ">
             <div className=" pt-[5rem] ">
                 <Link to={"/"}>
@@ -25,7 +23,6 @@ const Details = () => {
                 <div className=" flex flex-col dark:text-white justify-start ">
                     <h2 className="text-[30px] font-bold pt-10">{country.name}</h2>
                     <div className="flex pt-7 sm:gap-24 gap-9 sm:flex-row flex-col ">
-
                         <div className="flex flex-col gap-2">
                             <div className="flex items-center mb-[.1rem]">
                                 <h3 className="font-semibold text-[1.1rem]">Native Name: </h3>
@@ -48,7 +45,6 @@ const Details = () => {
                                 <span className="text-[1.1rem] ml-1">{country.capital}</span>
                             </div>
                         </div>
-
                         <div>
                             <div className="flex items-center mb-[.1rem]">
                                 <h3 className="font-semibold text-[1.1rem]">Top Level Domain:</h3>
@@ -78,13 +74,8 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-
-
     )
 }
 
